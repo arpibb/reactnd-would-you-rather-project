@@ -10,7 +10,7 @@ class App extends Component {
   }
   render(){
     const { authedUser } = this.props
-    //console.log(authedUser)
+    console.log(authedUser)
     return (
       <div className="App">
         <header className="App-header">
