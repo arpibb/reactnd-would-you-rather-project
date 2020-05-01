@@ -18,7 +18,9 @@ class App extends Component {
         <header className="App-header">
           <Nav/>
         </header>
-        <Login />
+        <section id='main-section'>
+          <Login />
+        </section>
       </div>
     );
   } 

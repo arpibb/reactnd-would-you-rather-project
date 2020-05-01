@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 import '../styles/App.scss'
+import logo from "../static/images/react-redux-logo.png"
 
 
 class Login extends Component {
@@ -31,13 +32,13 @@ class Login extends Component {
     const { authedUser,users } = this.props
     
     return(
-      <div className="sign-in-container" >
-        <div className="welcome">
-          <h3>Welcome to the would you rather App!</h3>
+      <div id="sign-in-container">
+        <div id="welcome">
+          <h3>Welcome to the Would You Rather App!</h3>
           <p>Please sign in to continue</p>
         </div>
-        <div>
-          <img src="./" alt="App Logo"/>
+        <div id="form-container">
+          <img id="main-logo" src={logo} alt="App Logo"/>
           <h3>Sign In</h3>
           <form onSubmit={this.handleSubmit} onChange={this.handleChange} required>
             <select defaultValue='select user'>
@@ -50,7 +51,6 @@ class Login extends Component {
             </select>
             <button type="submit">Sign In</button>
           </form>
-            {authedUser && <p>{authedUser}</p>}
         </div>
       </div>
     )
