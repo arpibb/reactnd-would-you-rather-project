@@ -23,7 +23,7 @@ class Login extends Component {
   handleSubmit = (e) =>{
     e.preventDefault()
     console.log(this.state.authedUser)
-    setAuthedUser(this.state.authedUser)
+    this.props.dispatch(setAuthedUser(this.state.authedUser))
   }
 
   render(){
@@ -38,15 +38,16 @@ class Login extends Component {
         <div>
           <img src="./" alt="App Logo"/>
           <h2>Sign In</h2>
-          <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+          <form onSubmit={this.handleSubmit} onChange={this.handleChange} required>
             <select>
+              <option selected="selected" disabled>Select User</option>
               {users && users.map((user) => {
                 return (
                 <option key={user.id} value={user.id}>{user.name}</option>
                 )
               })}
             </select>
-            <input type="submit" value="Submit"/>
+            <button type="submit">Sign In</button>
           </form>
             {authedUser && <p>{authedUser}</p>}
         </div>
