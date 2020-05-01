@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import { handleInitialData } from '../actions/shared'
 import Nav from './Nav'
+import '../styles/App.scss'
 
 
 class App extends Component {

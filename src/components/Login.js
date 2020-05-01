@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import '../styles/App.scss'
 
 
 class Login extends Component {
@@ -28,19 +29,19 @@ class Login extends Component {
 
   render(){
     const { authedUser,users } = this.props
-    //console.log(users)
+    
     return(
-      <div>
-        <div>
-          <h2>Welcome to the would you rather App!</h2>
+      <div className="sign-in-container" >
+        <div className="welcome">
+          <h3>Welcome to the would you rather App!</h3>
           <p>Please sign in to continue</p>
         </div>
         <div>
           <img src="./" alt="App Logo"/>
-          <h2>Sign In</h2>
+          <h3>Sign In</h3>
           <form onSubmit={this.handleSubmit} onChange={this.handleChange} required>
-            <select>
-              <option selected="selected" disabled>Select User</option>
+            <select defaultValue='select user'>
+              <option value="select user" disabled>Select User</option>
               {users && users.map((user) => {
                 return (
                 <option key={user.id} value={user.id}>{user.name}</option>
