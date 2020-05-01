@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Login from './Login'
 import { handleInitialData } from '../actions/shared'
+import Nav from './Nav'
 
 
 class App extends Component {
@@ -14,8 +15,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Login />
+          <Nav/>
         </header>
+        <Login />
       </div>
     );
   } 
