@@ -27,7 +27,6 @@ class NewQuestion extends Component {
       optionTwo: ''
     }))
   }
-
   render(){
     return(
       <div id="new-question-container">

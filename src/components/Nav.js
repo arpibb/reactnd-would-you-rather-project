@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import { NavLink } from 'react-router-dom'
+
 import '../styles/App.scss'
 
 
@@ -13,9 +15,9 @@ class Nav extends Component {
     return(
       <nav>
         <ul id="steady-nav-items">
-          <li>Home</li>
-          <li>New Question</li>
-          <li>Leaderboard</li>
+          <NavLink to='/' exact className="listItem">Home</NavLink>
+          <NavLink to='/new_question' exact className="listItem">New Question</NavLink>
+          <NavLink to='/leaderboard' exact className="listItem">Leaderboard</NavLink>
         </ul>
         {authedUser !== null && authedUser !== undefined && users && 
           <ul id="signed-in-nav-items">

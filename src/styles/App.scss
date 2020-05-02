@@ -5,7 +5,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-li {
+.listItem {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -20,19 +20,29 @@ nav{
   border-bottom: 3px solid skyblue;
 }
 
-#steady-nav-items li{
+#steady-nav-items .listItem{
   padding: 0 20px;
 }
 
 #signed-in-nav-items li {
   padding: 0 20px;
+
+  li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+  }
 }
+
 
 nav ul{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 10%;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 .avatar-small {
