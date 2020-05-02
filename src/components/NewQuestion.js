@@ -30,11 +30,11 @@ class NewQuestion extends Component {
 
   render(){
     return(
-      <div>
-        <div>
+      <div id="new-question-container">
+        <div className="welcome">
           <h3>Create a New Question</h3>
         </div>
-        <div>
+        <div className="form-container">
           <p>Complete the question:</p>
           <h4>Would you rather ...</h4>
           <form onSubmit={this.handleSubmit}>

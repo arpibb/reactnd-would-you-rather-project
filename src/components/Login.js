@@ -33,11 +33,11 @@ class Login extends Component {
     
     return(
       <div id="sign-in-container">
-        <div id="welcome">
+        <div className="welcome">
           <h3>Welcome to the Would You Rather App!</h3>
           <p>Please sign in to continue</p>
         </div>
-        <div id="form-container">
+        <div className="form-container">
           <img id="main-logo" src={logo} alt="App Logo"/>
           <h3>Sign In</h3>
           <form onSubmit={this.handleSubmit} onChange={this.handleChange} required>
