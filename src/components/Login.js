@@ -29,7 +29,7 @@ class Login extends Component {
   }
 
   render(){
-    const { authedUser,users } = this.props
+    const { users } = this.props
     
     return(
       <div id="sign-in-container">

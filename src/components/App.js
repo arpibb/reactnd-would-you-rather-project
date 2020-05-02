@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import { handleInitialData } from '../actions/shared'
 import Nav from './Nav'
+import NewQuestion from './NewQuestion'
 import '../styles/App.scss'
 
 
@@ -19,7 +20,8 @@ class App extends Component {
           <Nav/>
         </header>
         <section id='main-section'>
-          <Login />
+          {/* <Login /> */}
+          <NewQuestion/>
         </section>
       </div>
     );
