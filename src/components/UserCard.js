@@ -20,10 +20,14 @@ class UserCard extends Component{
           <p><span>Created questions</span><span className="right-span-score">{createdQuestionsNum}</span></p>
         </div>
         <div className="score-container">
-          <div>
+          <div id="score-text-container">
             <h4>Score</h4>
-            <h3>{answeredQuestionsNum + createdQuestionsNum}</h3>
           </div>
+          <div id="score-num-outer-container">
+            <div id="score-sum-container">
+              <h3>{answeredQuestionsNum + createdQuestionsNum}</h3>
+            </div>
+        </div>
         </div>
       </div>
     )

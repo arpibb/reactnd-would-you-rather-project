@@ -1,3 +1,7 @@
+$primary-color: #84a98c;
+$secondary-color:  #754ABD;
+$tertiary-color: #cad2c5;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,11 +21,14 @@
 nav{
   display: flex;
   height: 112px;
-  border-bottom: 3px solid skyblue;
+  border-bottom: 3px solid $primary-color;
 }
 
 #steady-nav-items .listItem{
   padding: 0 20px;
+  &:hover{
+    color: $secondary-color;
+  }
 }
 
 #signed-in-nav-items li {
@@ -57,7 +64,7 @@ nav ul{
   font-size: 16px;
 
   &:hover{
-    color: blueviolet;
+    color: $secondary-color;
   }
 }
 
@@ -70,14 +77,15 @@ nav ul{
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid skyblue;
+  border: 2px solid $tertiary-color;
+  border-radius: 10px;
   margin: 50px;
 }
 .welcome{
-  background-color: skyblue;
+  background-color: $tertiary-color;
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
+  padding: 15px 20px;
   align-items: center;
   width:100%;
 }
@@ -98,6 +106,7 @@ nav ul{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 15px;
   }
   select {
     width: 90%;
@@ -109,14 +118,18 @@ nav ul{
   }
   button{
     display:block;
-    background-color: skyblue;
+    background-color: $primary-color;
+    margin-top: 0px;
     color: white;
     border: none;
     width: 90%;
-    height: 30px;
+    height: 35px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
     cursor: pointer;
     &:hover{
-      background-color: blueviolet;
+    background-color: $secondary-color;
     }
   }
   input {
@@ -131,7 +144,8 @@ nav ul{
 #new-question-container {
   display: flex;
   flex-direction: column;
-  border: 2px solid skyblue;
+  border: 2px solid $tertiary-color;
+  border-radius: 10px;
   margin: 50px;
   width: 400px;
 
@@ -155,11 +169,15 @@ nav ul{
 
 .usercard {
   display: flex;
-  border: 2px solid black;
+  border: 2px solid #cad2c5;
   padding: 25px;
   margin: 35px 0;
+  border-radius: 10px;
   .avatar-container{
     padding: 0 25px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
     .avatar-big{
       width: 100px;
       height: auto;
@@ -171,8 +189,8 @@ nav ul{
     flex-direction: column;
     width: 300px;
     padding: 0 20px;
-    border-left: 2px solid black;
-    border-right: 2px solid black;;
+    border-left: 2px solid #cad2c5;
+    border-right: 2px solid #cad2c5;
     
     h2{
       margin-bottom: 15px
@@ -191,8 +209,29 @@ nav ul{
     flex-direction: column;
     align-items: center;
     margin: 0 0 0 25px;
-    padding: 0 20px;
-    border: 1px solid black;
+    border: 1px solid #cad2c5;
+
+    #score-text-container{
+      background: #cad2c5;
+      padding: 8px 27.5px;
+    }
+    #score-num-outer-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width:100%;
+      height: 100%;
+      #score-sum-container{
+        display: flex;
+        background-color: #84a98c;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+    
   }
 }
 

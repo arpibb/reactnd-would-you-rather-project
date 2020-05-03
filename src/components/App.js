@@ -20,7 +20,7 @@ class App extends Component {
     console.log(authedUser)
     return (
       <Router>
-        <LoadingBar/>
+        <LoadingBar style={{ backgroundColor: '#E07A5F' }}/>
         <Nav/>
         <section id='main-section'>
         {noAuth === true
