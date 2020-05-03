@@ -25,9 +25,9 @@ class App extends Component {
         {noAuth === true
             ? <Login/>
             : <div>
-                <Route path='/' exact component={Home} />
-                <Route path='/new_question' exact component={NewQuestion} />
-                <Route path='/leaderboard' exact component={Leaderboard} />
+                <Route exact path='/' component={Home} />
+                <Route exact path='/new_question' component={NewQuestion} />
+                <Route exact path='/leaderboard' component={Leaderboard} />
               </div>}
         </section>
       </Fragment>
