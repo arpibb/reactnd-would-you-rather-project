@@ -81,6 +81,12 @@ nav ul{
   border-radius: 10px;
   margin: 50px;
 }
+.sign-in-alert{
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  margin-top: 40px;
+}
 .welcome{
   background-color: $tertiary-color;
   display: flex;

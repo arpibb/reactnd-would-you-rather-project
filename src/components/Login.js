@@ -8,6 +8,8 @@ import logo from "../static/images/react-redux-logo.png"
 class Login extends Component {
   state = {
     authedUser: '',
+    isUserSelected: false,
+    noUserSelected: false,
   }
 
   componentDidMount(){
@@ -16,41 +18,52 @@ class Login extends Component {
 
   handleChange = (e) => {
     const selected = e.target.value
-    console.log(selected)
+    console.log("selected", selected)
     this.setState(()=>({
-      authedUser: selected
+      authedUser: selected,
+      isUserSelected: true,
     }))
   }
 
   handleSubmit = (e) =>{
     e.preventDefault()
-    console.log(this.state.authedUser)
-    this.props.dispatch(setAuthedUser(this.state.authedUser))
+    if(this.state.isUserSelected){
+      this.props.dispatch(setAuthedUser(this.state.authedUser))
+    }
+    else{
+      this.setState(()=>({
+        noUserSelected: true,
+      }))
+    }
   }
 
   render(){
     const { users } = this.props
+    const { noUserSelected } = this.state
     
     return(
-      <div id="sign-in-container">
-        <div className="welcome">
-          <h3>Welcome to the Would You Rather App!</h3>
-          <p>Please sign in to continue</p>
-        </div>
-        <div className="form-container">
-          <img id="main-logo" src={logo} alt="App Logo"/>
-          <h3>Sign In</h3>
-          <form onSubmit={this.handleSubmit} onChange={this.handleChange} required>
-            <select defaultValue='select user'>
-              <option value="select user" disabled>Select User</option>
-              {users && users.map((user) => {
-                return (
-                <option key={user.id} value={user.id}>{user.name}</option>
-                )
-              })}
-            </select>
-            <button type="submit">Sign In</button>
-          </form>
+      <div>
+        {noUserSelected && (<div className="sign-in-alert"><p>Please choose a user to Sign In</p></div>)}
+        <div id="sign-in-container">
+          <div className="welcome">
+            <h3>Welcome to the Would You Rather App!</h3>
+            <p>Please sign in to continue</p>
+          </div>
+          <div className="form-container">
+            <img id="main-logo" src={logo} alt="App Logo"/>
+            <h3>Sign In</h3>
+            <form onSubmit={this.handleSubmit} onChange={this.handleChange} required>
+              <select defaultValue='select user'>
+                <option value="select user" disabled>Select User</option>
+                {users && users.map((user) => {
+                  return (
+                  <option key={user.id} value={user.id}>{user.name}</option>
+                  )
+                })}
+              </select>
+              <button type="submit">Sign In</button>
+            </form>
+          </div>
         </div>
       </div>
     )

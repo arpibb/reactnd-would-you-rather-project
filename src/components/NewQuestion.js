@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleSaveQuestion } from '../actions/shared'
+import { Redirect } from 'react-router-dom'
 import '../styles/App.scss'
 
 class NewQuestion extends Component {
   state = {
     optionOne: '',
-    optionTwo: ''
+    optionTwo: '',
+    toHome: false,
   }
 
   handleChange = (e) => {
@@ -24,10 +26,18 @@ class NewQuestion extends Component {
     dispatch(handleSaveQuestion(optionOne,optionTwo))
     this.setState(()=>({
       optionOne: '',
-      optionTwo: ''
+      optionTwo: '',
+      toHome: true,
     }))
+
   }
   render(){
+    const { toHome } = this.state
+
+    if(toHome){
+      return <Redirect to='/'/>
+    }
+
     return(
       <div id="new-question-container">
         <div className="welcome">
