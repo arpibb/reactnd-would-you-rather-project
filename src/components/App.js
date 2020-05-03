@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
@@ -10,7 +10,6 @@ import NewQuestion from './NewQuestion'
 import LoadingBar from 'react-redux-loading'
 import '../styles/App.scss'
 
-
 class App extends Component {
   componentDidMount(){
     this.props.dispatch(handleInitialData())
@@ -19,7 +18,7 @@ class App extends Component {
     const { noAuth, authedUser } = this.props
     console.log(authedUser)
     return (
-      <Router>
+      <Fragment>
         <LoadingBar style={{ backgroundColor: '#E07A5F' }}/>
         <Nav/>
         <section id='main-section'>
@@ -27,11 +26,11 @@ class App extends Component {
             ? <Login/>
             : <div>
                 <Route path='/' exact component={Home} />
-                <Route path='/new_question' component={NewQuestion} />
-                <Route path='/leaderboard' component={Leaderboard} />
+                <Route path='/new_question' exact component={NewQuestion} />
+                <Route path='/leaderboard' exact component={Leaderboard} />
               </div>}
         </section>
-      </Router>
+      </Fragment>
     );
   } 
 }

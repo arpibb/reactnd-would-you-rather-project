@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import history from './history';
 import '../styles/App.scss'
 import logo from "../static/images/react-redux-logo.png"
-
 
 class Login extends Component {
   state = {
@@ -29,6 +29,7 @@ class Login extends Component {
     e.preventDefault()
     if(this.state.isUserSelected){
       this.props.dispatch(setAuthedUser(this.state.authedUser))
+      history.push("/")
     }
     else{
       this.setState(()=>({
