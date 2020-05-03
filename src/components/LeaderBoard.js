@@ -11,5 +11,5 @@ class LeaderBoard extends Component{
   }
 }
 
-export default LeaderBoard
+export default connect()(LeaderBoard)
 

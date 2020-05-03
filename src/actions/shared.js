@@ -1,7 +1,14 @@
 import { getInitialData } from '../utils/api'
-import { receiveQuestions, saveQuestionAction } from '../actions/questions'
-import { receiveUsers, saveQuestionToUser } from '../actions/users'
-import { setAuthedUser } from '../actions/authedUser'
+import { 
+  receiveQuestions,
+  saveQuestionAction,
+  saveQuestionAnswerAction } from '../actions/questions'
+import { 
+  receiveUsers, 
+  saveQuestionToUser,
+  saveQuestionAnswerToUserAction
+ } from '../actions/users'
+// import { setAuthedUser } from '../actions/authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 import { saveQuestion, saveQuestionAnswer } from '../utils/api'
 
@@ -36,5 +43,21 @@ export function handleSaveQuestion(optionOneText,optionTwoText){
       
       })
       .then(()=>dispatch(hideLoading()))
+  }
+}
+
+export function handleSaveQuestionAnswer(qid,answer){
+  return (dispatch,getState) => {
+    const { authedUser } = getState()
+
+    dispatch(showLoading())
+    return saveQuestionAnswer({
+      authedUser,
+      qid,
+      answer,
+    }).then((question)=>{
+      dispatch(saveQuestionAnswerAction(question))
+      dispatch(saveQuestionAnswerToUserAction(question))
+  })
   }
 }
