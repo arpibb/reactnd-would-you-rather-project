@@ -153,3 +153,46 @@ nav ul{
   }
 }
 
+.usercard {
+  display: flex;
+  border: 2px solid black;
+  padding: 25px;
+  margin: 35px 0;
+  .avatar-container{
+    padding: 0 25px 0 0;
+    .avatar-big{
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+    }
+  }
+  .description-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 0 20px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;;
+    
+    h2{
+      margin-bottom: 15px
+    }
+    p{
+      font-size: smaller;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+    .right-span-score{
+      float: right;
+    }
+  }
+  .score-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 0 25px;
+    padding: 0 20px;
+    border: 1px solid black;
+  }
+}
+
