@@ -12,7 +12,6 @@ import {
 import { showLoading, hideLoading } from 'react-redux-loading'
 import { saveQuestion, saveQuestionAnswer } from '../utils/api'
 
-
 // const AUTHED_USER = 'sarahedo'
 
 export function handleInitialData() {
@@ -59,5 +58,6 @@ export function handleSaveQuestionAnswer(qid,answer){
       dispatch(saveQuestionAnswerAction(question))
       dispatch(saveQuestionAnswerToUserAction(question))
   })
+    .then(()=>dispatch(hideLoading()))
   }
 }

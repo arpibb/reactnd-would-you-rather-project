@@ -5,11 +5,18 @@ class LeaderBoard extends Component{
   render(){
     return(
       <div>
-        This is the LeaderBoard
+        {}
       </div>
     )
   }
 }
 
-export default connect()(LeaderBoard)
+function mapStateToProps({users, authedUser}){
+  return {
+    authedUser,
+    users: Object.keys(users).map(user => users[user])
+  }
+}
+
+export default connect(mapStateToProps)(LeaderBoard)
 
