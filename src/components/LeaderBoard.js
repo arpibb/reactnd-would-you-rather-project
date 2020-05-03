@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import UserCard from './UserCard'
 
-class LeaderBoard extends Component{
+class Leaderboard extends Component{
   render(){
     const { users } = this.props
     return(
@@ -24,5 +24,5 @@ function mapStateToProps({users, authedUser}){
   }
 }
 
-export default connect(mapStateToProps)(LeaderBoard)
+export default connect(mapStateToProps)(Leaderboard)
 

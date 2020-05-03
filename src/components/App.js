@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Nav from './Nav'
 import Login from './Login'
 import Home from './Home'
-import LeaderBoard from './LeaderBoard'
+import Leaderboard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import LoadingBar from 'react-redux-loading'
 import '../styles/App.scss'
@@ -28,7 +28,7 @@ class App extends Component {
             : <div>
                 <Route path='/' exact component={Home} />
                 <Route path='/new_question' component={NewQuestion} />
-                <Route path='/leaderboard' component={LeaderBoard} />
+                <Route path='/leaderboard' component={Leaderboard} />
               </div>}
         </section>
       </Router>
