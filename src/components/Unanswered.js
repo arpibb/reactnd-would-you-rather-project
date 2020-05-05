@@ -33,13 +33,12 @@ class Unanswered extends Component{
           </div>
           <div className="question-container">
             <p>Would You Rather ...</p>
-            <form>
-            <input type="radio" id="optionOne" name="answers" value=""
-              checked></input>
-              <input type="radio" id="optionTwo" name="answers" value=""
-              ></input>
+            <form onSubmit={this.handleSubmit}>
+              <input type="radio" id="optionOne" name="answers" value=""
+                checked onChange={this.handleChange}></input>
+              <input type="radio" id="optionTwo" name="answers" value="" onChange={this.handleChange}></input>
+              <button type="submit">Submit</button>
             </form>
-            
           </div>
         </div>
       </div>
