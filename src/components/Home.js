@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import QuestionPreview from './QuestionPreview'
 import '../styles/App.scss'
 
 class Home extends Component{
@@ -27,10 +28,9 @@ class Home extends Component{
     return b.timestamp - a.timestamp
   }
 
-
   render(){
     const { answered } = this.state
-    const { authedUser, users, questions } = this.props
+    const { authedUser, questions } = this.props
     return(
       <div className="home-container">
         <div className="buttons-container">
@@ -45,8 +45,9 @@ class Home extends Component{
           {questions && questions.filter(question => this.filterQuestions(question,authedUser,answered))
             .sort((a,b)=> this.sortQuestionsByTimestamp(a,b))
               .map(question => (
-            <p>{question.id}</p>
-          ))}
+                <QuestionPreview key={question.id} id={question.id}/>
+              )
+          )}
         </div>
       </div>
     )
