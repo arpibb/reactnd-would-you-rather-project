@@ -291,7 +291,9 @@ nav ul{
     display: flex;
     
     .avatar-container{
-      padding: 15px 30px 15px 15px;
+      margin: 15px 15px 15px 15px;
+      padding-right: 15px;
+      border-right: 1px solid $tertiary-color;
       display: flex;
       justify-content: center;
       align-items:center;
@@ -299,6 +301,14 @@ nav ul{
         width: 100px;
         height: auto;
         border-radius: 50%;
+      }
+    }
+    .question-preview-container{
+      :first-child{
+        font-weight: 600;
+      }
+      p{
+        margin: 15px 0;
       }
     }
   }
