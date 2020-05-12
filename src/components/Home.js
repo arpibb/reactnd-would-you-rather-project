@@ -34,10 +34,10 @@ class Home extends Component{
     return(
       <div className="home-container">
         <div className="buttons-container">
-          <div className="answer-btn" onClick={()=>this.handleAnswers(false)}>
+          <div className={answered ? "answer-btn" : "answer-btn active"} onClick={()=>this.handleAnswers(false)}>
             <p>Unanswered Questions</p>
           </div>
-          <div className="answer-btn" onClick={()=>this.handleAnswers(true)}>
+          <div className={answered ? "answer-btn active" : "answer-btn"} onClick={()=>this.handleAnswers(true)}>
             <p>Answered Questions</p>
           </div>
         </div>

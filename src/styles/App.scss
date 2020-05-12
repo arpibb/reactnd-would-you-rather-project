@@ -247,26 +247,32 @@ nav ul{
   padding: 0px 0px 15px 0px;
   margin: 15px 0 50px 0;
   .buttons-container{
+    width: 100%;
     display: flex;
     border-bottom: 1px solid #cad2c5;
     margin-bottom: 15px;
-
     .answer-btn{
-      align-self: center;
+      width: 50%;
+      height: 100%;
       cursor: pointer;
       background-color: white;
+      padding: 10px 0;
       &:hover{
         background-color: #cad2c5;
       }
       p {
-        display: block;
+        text-align: center;
       }
+    }
+    .active {
+      background-color:#cad2c5;
     }
   }
 }
 
 .question-preview-card{
   display: flex;
+  width: 450px;
   flex-direction: column;
   border: 2px solid #cad2c5;
 
