@@ -291,7 +291,7 @@ nav ul{
     display: flex;
     
     .avatar-container{
-      margin: 15px 15px 15px 15px;
+      margin: 15px 0px 15px 15px;
       padding-right: 15px;
       border-right: 1px solid $tertiary-color;
       display: flex;
@@ -304,11 +304,33 @@ nav ul{
       }
     }
     .question-preview-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      margin: 15px 15px;
       :first-child{
         font-weight: 600;
       }
       p{
-        margin: 15px 0;
+        margin: 0px 0;
+      }
+      button{
+        display:block;
+        align-self: center;
+        background-color: white;
+        border: 1px solid $tertiary-color;
+        color: black;
+        margin: 0 auto;
+        width: 100%;
+        height: 30px;
+        font-size: 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        &:hover{
+        background-color: $tertiary-color;
+        }
       }
     }
   }
