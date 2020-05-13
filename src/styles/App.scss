@@ -315,23 +315,28 @@ nav ul{
       p{
         margin: 0px 0;
       }
-      button{
-        display:block;
-        align-self: center;
-        background-color: white;
-        border: 1px solid $tertiary-color;
-        color: black;
-        margin: 0 auto;
-        width: 100%;
-        height: 30px;
-        font-size: 12px;
-        border-radius: 5px;
-        cursor: pointer;
-        outline: none;
-        &:hover{
-        background-color: $tertiary-color;
+      .view-poll-link{
+        text-decoration: none;
+        .view-poll{
+          display:block;
+          align-self: center;
+          background-color: white;
+          border: 1px solid $tertiary-color;
+          color: black;
+          margin: 0 auto;
+          width: 100%;
+          height: 30px;
+          font-size: 12px;
+          border-radius: 5px;
+          cursor: pointer;
+          outline: none;
+          text-decoration: none;
+          &:hover{
+          background-color: $tertiary-color;
+          }
         }
       }
+      
     }
   }
 }

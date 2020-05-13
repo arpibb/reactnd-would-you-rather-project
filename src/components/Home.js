@@ -45,7 +45,7 @@ class Home extends Component{
           {questions && questions.filter(question => this.filterQuestions(question,authedUser,answered))
             .sort((a,b)=> this.sortQuestionsByTimestamp(a,b))
               .map(question => (
-                <QuestionPreview key={question.id} id={question.id}/>
+                <QuestionPreview key={question.id} id={question.id} answered={answered}/>
               )
           )}
         </div>
