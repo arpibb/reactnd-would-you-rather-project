@@ -8,6 +8,7 @@ import Home from './Home'
 import Leaderboard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import LoadingBar from 'react-redux-loading'
+import QuestionCard from './QuestionCard'
 import '../styles/App.scss'
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/new_question' component={NewQuestion} />
                 <Route exact path='/leaderboard' component={Leaderboard} />
+                <Route path='/question/:id' component={QuestionCard} />
               </div>}
         </section>
       </Fragment>

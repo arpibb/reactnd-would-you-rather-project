@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleSaveQuestionAnswer } from '../actions/shared'
 import '../styles/App.scss'
 
-class Unanswered extends Component{
+class QuestionCard extends Component{
   state = {
     checked: 'optionOne'
   }
@@ -55,4 +55,4 @@ function mapStateToProps({authedUser, users, questions},{qid}){
   }
 }
 
-export default connect(mapStateToProps)(Unanswered)
+export default connect(mapStateToProps)(QuestionCard)
