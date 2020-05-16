@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../styles/App.scss'
-import {Link, withRouter} from 'react-router-dom'
+import {Link, Route, withRouter} from 'react-router-dom'
+import QuestionCard from './QuestionCard'
 
 class QuestionPreview extends Component{
 
@@ -26,7 +27,7 @@ class QuestionPreview extends Component{
           <div className="question-preview-container">
             <p>Would you rather</p>
             <p>...{questions && questions[id].optionOne.text.slice(0,-3)}...</p>
-            <Link to={`/question/${id}`} className="view-poll-link"><button className="view-poll" onClick={this.showQuestionCard}>View Poll</button></Link>
+            <Link to={`/question/${id}`} className="view-poll-link" qid={id}><button className="view-poll" onClick={this.showQuestionCard}>View Poll</button></Link>
           </div>
         </div>
       </div>
@@ -44,4 +45,4 @@ function mapStateToProps({authedUser,users,questions}, {id,answered}){
   }
 }
 
-export default connect(mapStateToProps)(QuestionPreview)
+export default withRouter(connect(mapStateToProps)(QuestionPreview))

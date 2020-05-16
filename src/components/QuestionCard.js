@@ -22,6 +22,7 @@ class QuestionCard extends Component{
   }
 
   render(){
+    console.log(this.props.qid)
     return(
       <div className="unanswered-card">
         <div className="card-top">
@@ -29,7 +30,7 @@ class QuestionCard extends Component{
         </div>
         <div className="card-bottom">
           <div className="avatar-container">
-            <img className="avatar-big" />
+            <img className="avatar-big" alt={`avatar of ${this.props.authedUser}`}/>
           </div>
           <div className="question-container">
             <p>Would You Rather ...</p>
