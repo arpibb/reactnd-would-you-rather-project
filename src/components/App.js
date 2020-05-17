@@ -9,12 +9,13 @@ import Leaderboard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import LoadingBar from 'react-redux-loading'
 import '../styles/App.scss'
-import QuestionCard from './QuestionCard'
+import QuestionRoute from './QuestionRoute'
 
 
 class App extends Component {
   componentDidMount(){
     this.props.dispatch(handleInitialData())
+    
   }
   render(){
     const { noAuth, authedUser } = this.props
@@ -32,8 +33,8 @@ class App extends Component {
                 <Route exact path='/leaderboard' component={Leaderboard} />
                 <Route path='/question/:id' render={(props)=>{
                   return(
-                <QuestionCard {...props}/>
-                ) 
+                    <QuestionRoute qid={props.match.params.id} />
+                  )
               }} />
               </div>}
         </section>

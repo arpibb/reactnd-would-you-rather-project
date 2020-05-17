@@ -45,9 +45,8 @@ export function handleSaveQuestion(optionOneText,optionTwoText){
   }
 }
 
-export function handleSaveQuestionAnswer(qid,answer){
-  return (dispatch,getState) => {
-    const { authedUser } = getState()
+export function handleSaveQuestionAnswer(authedUser,qid,answer){
+  return (dispatch) => {
 
     dispatch(showLoading())
     return saveQuestionAnswer({

@@ -19,7 +19,7 @@ export function saveQuestionAction(question){
 export function saveQuestionAnswerAction(question){
   return {
     type: SAVE_QUESTION_ANSWER,
-    question
+    question,
   }
 }
 

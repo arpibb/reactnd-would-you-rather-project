@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleSaveQuestionAnswer } from '../actions/shared'
 import '../styles/App.scss'
 
-class QuestionCard extends Component{
+class UnAnswered extends Component{
   state = {
     checked: 'optionOne'
   }
@@ -16,13 +16,17 @@ class QuestionCard extends Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const {dispatch, qid} = this.props
+    const {dispatch, qid, authedUser} = this.props
     const { checked } = this.state
-    dispatch(handleSaveQuestionAnswer(qid,checked))
+    dispatch(handleSaveQuestionAnswer(authedUser,qid,checked))
   }
 
   render(){
-    console.log(this.props.qid)
+    const { qid, authedUser, users, questions} = this.props
+    const optionOneText = questions[qid].optionOne.text
+    const optionTwoText = questions[qid].optionTwo.text
+    console.log(optionTwoText)
+
     return(
       <div className="unanswered-card">
         <div className="card-top">
@@ -34,12 +38,15 @@ class QuestionCard extends Component{
           </div>
           <div className="question-container">
             <p>Would You Rather ...</p>
-            <form onSubmit={this.handleSubmit}>
-              <input type="radio" id="optionOne" name="answers" value=""
-                checked onChange={this.handleChange}></input>
-              <input type="radio" id="optionTwo" name="answers" value="" onChange={this.handleChange}></input>
+            { questions &&
+              <form onSubmit={this.handleSubmit}>
+              <input type="radio" id="optionOne" name="answers" value={optionOneText} onChange={this.handleChange}/>
+              <label>{optionOneText}</label>
+              <input type="radio" id="optionTwo" name="answers" value={optionTwoText} onChange={this.handleChange} />
+              <label>{optionTwoText}</label>
               <button type="submit">Submit</button>
             </form>
+            }
           </div>
         </div>
       </div>
@@ -56,4 +63,4 @@ function mapStateToProps({authedUser, users, questions},{qid}){
   }
 }
 
-export default connect(mapStateToProps)(QuestionCard)
+export default connect(mapStateToProps)(UnAnswered)

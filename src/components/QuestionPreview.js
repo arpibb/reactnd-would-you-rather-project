@@ -1,19 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../styles/App.scss'
-import {Link, Route, withRouter} from 'react-router-dom'
-import QuestionCard from './QuestionCard'
+import {Link, withRouter} from 'react-router-dom'
 
 class QuestionPreview extends Component{
 
-  showQuestionCard = () => {
-    if(this.props.answered){
-
-    }
-  }
-
   render(){
-    const {authedUser, users, questions, id, answered} = this.props
+    const {authedUser, users, questions, id} = this.props
     const questionAuthor = users[questions[id].author]
     return (
       <div className="question-preview-card">
@@ -27,7 +20,7 @@ class QuestionPreview extends Component{
           <div className="question-preview-container">
             <p>Would you rather</p>
             <p>...{questions && questions[id].optionOne.text.slice(0,-3)}...</p>
-            <Link to={`/question/${id}`} className="view-poll-link" qid={id}><button className="view-poll" onClick={this.showQuestionCard}>View Poll</button></Link>
+            <Link to={`/question/${id}`} className="view-poll-link"><button className="view-poll" onClick={this.showQuestionCard}>View Poll</button></Link>
           </div>
         </div>
       </div>
