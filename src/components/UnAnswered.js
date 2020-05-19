@@ -30,7 +30,7 @@ class UnAnswered extends Component{
     const optionTwoText = questions[qid].optionTwo.text
 
     return(
-      <div className="question-card unwanswered">
+      <div className="question-card unanswered">
         <div className="name-display">
           <p>{questionAuthor.name} asks:</p>
         </div>
