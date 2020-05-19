@@ -6,10 +6,10 @@ import {Link, withRouter} from 'react-router-dom'
 class QuestionPreview extends Component{
 
   render(){
-    const {authedUser, users, questions, id} = this.props
+    const { users, questions, id} = this.props
     const questionAuthor = users[questions[id].author]
     return (
-      <div className="question-preview-card">
+      <div className="question-card">
         <div className="name-display">
           <p>{questionAuthor.name} asks:</p>
         </div>
@@ -17,9 +17,9 @@ class QuestionPreview extends Component{
           <div className="avatar-container">
             <img className="avatar-big" src={questionAuthor.avatarURL} alt={`Avatar of ${questionAuthor.name}`}></img>
           </div>
-          <div className="question-preview-container">
-            <p>Would you rather</p>
-            <p>...{questions && questions[id].optionOne.text.slice(0,-3)}...</p>
+          <div className="question-container">
+            <p>Would You Rather ...</p>
+            <p>...{questions && questions[id].optionOne.text.slice(0,10)}...</p>
             <Link to={`/question/${id}`} className="view-poll-link"><button className="view-poll" onClick={this.showQuestionCard}>View Poll</button></Link>
           </div>
         </div>
