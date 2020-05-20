@@ -26,20 +26,24 @@ class Answered extends Component{
             <img className="avatar-big" src={questionAuthor.avatarURL} alt={`Avatar of ${questionAuthor.name}`}></img>
           </div>
           <div className="question-container">
-            <p>Results: </p>
+            <p className="head-text">Results: </p>
             <div className={`option-result ${yourAnswer ==='optionOne' ? 'your-answer' : ''}`}>
-              <p>Would you rather {optionOneText}</p>
+              <p className="option-text">Would you rather {optionOneText}?</p>
               <div className="show-result-border">
                 <div className="show-result" style={{width: `${widthOptionOne}%`}}>{widthOptionOne}%</div>
               </div>
-              <p>{numOptionOne} out of {numSum} votes</p>
+              <div className="option-result-bottom">
+                <p>{numOptionOne} out of {numSum} votes</p>
+              </div>
             </div>
             <div className={`option-result ${yourAnswer ==='optionTwo' ? 'your-answer' : ''}`}>
-              <p>Would you rather {optionTwoText}</p>
+              <p className="option-text">Would you rather {optionTwoText}?</p>
               <div className="show-result-border">
-              <div className="show-result" style={{width: `${widthOptionTwo}%`}}>{widthOptionTwo}%</div>
+                <div className="show-result" style={{width: `${widthOptionTwo}%`}}>{widthOptionTwo}%</div>
               </div>
-              <p>{numOptionTwo} out of {numSum} votes</p>
+              <div className="option-result-bottom">
+                <p>{numOptionTwo} out of {numSum} votes</p>
+              </div>
             </div>
           </div>
         </div>

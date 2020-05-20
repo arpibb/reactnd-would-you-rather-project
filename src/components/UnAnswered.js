@@ -39,13 +39,13 @@ class UnAnswered extends Component{
             <img className="avatar-big" src={questionAuthor.avatarURL} alt={`Avatar of ${questionAuthor.name}`}></img>
           </div>
           <div className="question-container">
-            <p>Would You Rather ...</p>
+            <p className="head-text">Would You Rather ...</p>
             { questions &&
               <form onSubmit={this.handleSubmit}>
                 <input type="radio" id="optionOne" name="answers" value={optionOneText} onChange={this.handleChange} checked={this.state.checked === 'optionOne'}/>
-                <label htmlFor="optionOne" id="optionOne">{optionOneText}</label><br/>
+                <label htmlFor="optionOne" id="optionOne">{`${optionOneText}?`}</label><br/>
                 <input type="radio" id="optionTwo" name="answers" value={optionTwoText} onChange={this.handleChange} checked={this.state.checked === 'optionTwo'}/>
-                <label htmlFor="optionTwo" id="optionTwo">{optionTwoText}</label><br/>
+                <label htmlFor="optionTwo" id="optionTwo">{`${optionTwoText}?`}</label><br/>
                 <button type="submit" className="view-poll">Submit</button>
               </form>
             }

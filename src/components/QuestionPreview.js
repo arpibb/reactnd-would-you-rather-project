@@ -18,7 +18,7 @@ class QuestionPreview extends Component{
             <img className="avatar-big" src={questionAuthor.avatarURL} alt={`Avatar of ${questionAuthor.name}`}></img>
           </div>
           <div className="question-container">
-            <p>Would You Rather ...</p>
+            <p className="option-text">Would You Rather ...</p>
             <p>...{questions && questions[id].optionOne.text.slice(0,10)}...</p>
             <Link to={`/question/${id}`} className="view-poll-link"><button className="view-poll" onClick={this.showQuestionCard}>View Poll</button></Link>
           </div>
@@ -30,7 +30,6 @@ class QuestionPreview extends Component{
 
 function mapStateToProps({authedUser,users,questions}, {id,answered}){
   return {
-    authedUser,
     users,
     questions,
     id,
