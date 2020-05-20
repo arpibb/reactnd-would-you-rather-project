@@ -4,15 +4,17 @@ import '../styles/App.scss'
 
 class Answered extends Component{
   render(){
-    const { qid, users, questions} = this.props
+    const {authedUser, qid, users, questions} = this.props
     const questionAuthor = users[questions[qid].author]
     const optionOneText = questions[qid].optionOne.text
     const optionTwoText = questions[qid].optionTwo.text
     const numOptionOne = questions[qid].optionOne.votes.length
     const numOptionTwo = questions[qid].optionTwo.votes.length
     const numSum = numOptionOne + numOptionTwo
-    const widthOptionOne = numOptionOne/ numSum * 100
+    const widthOptionOne = Math.round(numOptionOne/ numSum * 100)
     const widthOptionTwo = 100 - widthOptionOne
+    const yourAnswer = questions[qid].optionOne.votes.includes(authedUser) ? 'optionOne' : 
+      questions[qid].optionTwo.votes.includes(authedUser) ? 'optionTwo' : ''
 
     return(
       <div className="question-card answered">
@@ -25,14 +27,14 @@ class Answered extends Component{
           </div>
           <div className="question-container">
             <p>Results: </p>
-            <div className="option-result">
+            <div className={`option-result ${yourAnswer ==='optionOne' ? 'your-answer' : ''}`}>
               <p>Would you rather {optionOneText}</p>
               <div className="show-result-border">
                 <div className="show-result" style={{width: `${widthOptionOne}%`}}>{widthOptionOne}%</div>
               </div>
               <p>{numOptionOne} out of {numSum} votes</p>
             </div>
-            <div className="option-result">
+            <div className={`option-result ${yourAnswer ==='optionTwo' ? 'your-answer' : ''}`}>
               <p>Would you rather {optionTwoText}</p>
               <div className="show-result-border">
               <div className="show-result" style={{width: `${widthOptionTwo}%`}}>{widthOptionTwo}%</div>
