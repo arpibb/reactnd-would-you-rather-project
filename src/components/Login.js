@@ -14,6 +14,11 @@ class Login extends Component {
 
   componentDidMount(){
     console.log("authedUser",this.props.authedUser)
+    if(this.props.noAuth ){
+      this.setState(()=>({
+        noUserSelected: true,
+      }))
+    }
   }
 
   handleChange = (e) => {

@@ -16,7 +16,7 @@ class Nav extends Component {
       <nav>
         <ul id="steady-nav-items">
           <NavLink to='/' exact className="listItem">Home</NavLink>
-          <NavLink to='/new_question' exact className="listItem">New Question</NavLink>
+          <NavLink to='/add' exact className="listItem">New Question</NavLink>
           <NavLink to='/leaderboard' exact className="listItem">Leaderboard</NavLink>
         </ul>
         {authedUser !== null && authedUser !== undefined && users && 

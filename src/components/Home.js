@@ -5,7 +5,7 @@ import '../styles/App.scss'
 
 class Home extends Component{
   state = {
-    answered: true,
+    answered: false,
   }
 
   handleAnswers = (isAnsweredNeeded) => {
