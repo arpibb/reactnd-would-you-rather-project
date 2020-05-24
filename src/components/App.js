@@ -9,8 +9,10 @@ import Leaderboard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import LoadingBar from 'react-redux-loading'
 import NotFoundPage from './NotFoundPage'
+import PrivateRoute from './PrivateRoute'
 import '../styles/App.scss'
 import QuestionRoute from './QuestionRoute'
+import SignInRequestAlert from './SignInRequestAlert'
 
 
 class App extends Component {
@@ -26,22 +28,78 @@ class App extends Component {
         <LoadingBar style={{ backgroundColor: '#E07A5F' }}/>
         <Nav/>
         <section id='main-section'>
-        {noAuth === true
-            ? <Login />
-            : <div>
-                <Switch>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/add' component={NewQuestion} />
-                  <Route exact path='/leaderboard' component={Leaderboard} />
-                  <Route path='/question/:id' render={(props)=>{
-                    return(
-                      <QuestionRoute qid={props.match.params.id} />
-                    )
-                  }}/>
-                  <Route path="/*" component={NotFoundPage} />
-                  <Redirect to="/404" />
-                </Switch> 
-              </div>}
+          <Switch>
+            <Route exact path='/' render={()=>{
+              if(noAuth){
+                return(
+                  <Fragment>
+                    <Login/>
+                  </Fragment>
+                )
+              }
+              else{
+                return(
+                  <Fragment>
+                    <Home/>
+                  </Fragment>   
+                )
+              }
+              }
+            } />
+            <Route exact path='/add' render={()=>{
+              if(noAuth){
+                return(
+                  <Fragment>
+                    <SignInRequestAlert/>
+                    <Login/>
+                  </Fragment>
+                )
+              }
+              else{
+                return(
+                  <Fragment>
+                    <NewQuestion/>
+                  </Fragment>   
+                )
+              }
+              }
+            } />
+            <Route exact path='/leaderboard' render={()=>{
+              if(noAuth){
+                return(
+                  <Fragment>
+                    <SignInRequestAlert/>
+                    <Login/>
+                  </Fragment>
+                )
+              }
+              else{
+                return(
+                  <Fragment>
+                    <Leaderboard/>
+                  </Fragment>   
+                )
+              }
+              }
+            } />
+            <Route path='/question/:id' render={(props)=>{
+              if(noAuth){
+                return(
+                  <Fragment>
+                    <SignInRequestAlert/>
+                    <Login/>
+                  </Fragment>
+                )
+              }
+              else{
+                return(
+                  <QuestionRoute qid={props.match.params.id} />
+                )
+              }
+            }}/>
+            <Route path="/*" component={NotFoundPage} />
+            <Redirect to="/404" />
+          </Switch> 
         </section>
       </Fragment>
     );

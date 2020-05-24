@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import '../styles/App.scss'
 
 class NotFoundPage extends Component{
   render(){
     return(
       <div>
-        Page Not found. Sorry.
+        Ooops, seems like there is nothing to see here. Please go back and login.
       </div>
     )
   }

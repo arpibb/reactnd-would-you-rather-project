@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 import { withRouter } from 'react-router-dom'
+import SignInRequestAlert from './SignInRequestAlert'
 import '../styles/App.scss'
 import logo from "../static/images/react-redux-logo.png"
 
@@ -49,7 +50,7 @@ class Login extends Component {
     
     return(
       <div>
-        {noUserSelected && (<div className="sign-in-alert"><p>Please choose a user to Sign In</p></div>)}
+        {noUserSelected && <SignInRequestAlert/>}
         <div id="sign-in-container">
           <div className="welcome">
             <h3>Welcome to the Would You Rather App!</h3>
