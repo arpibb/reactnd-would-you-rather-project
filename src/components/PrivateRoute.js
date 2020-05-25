@@ -5,16 +5,20 @@ import {
 } from 'react-router-dom'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  console.log(rest)
   return(
-  <Route {...rest} render={(props) => (
+  <Route {...rest} render={(props) => {
+    return(
     rest.noAuth === false
-      ? <Component {...props} />
-      : <Redirect to='/'/>
-      // <Redirect to={{
-      //     pathname: '/',
-      //     state: { from: props.location }
-      //   }} />
-  )} />)}
+      ? <Component {...props} qid={props.match.params.id} />
+      : <div>
+           <Redirect to={{
+              pathname: '/',
+              state: { from: props.location }
+            }} />
+        </div>
+
+      )
+      
+}} />)}
 
 export default PrivateRoute

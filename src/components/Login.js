@@ -50,7 +50,7 @@ class Login extends Component {
     
     return(
       <div>
-        {noUserSelected && <SignInRequestAlert/>}
+        {noUserSelected && <SignInRequestAlert />}
         <div id="sign-in-container">
           <div className="welcome">
             <h3>Welcome to the Would You Rather App!</h3>

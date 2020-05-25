@@ -12,8 +12,6 @@ import NotFoundPage from './NotFoundPage'
 import PrivateRoute from './PrivateRoute'
 import '../styles/App.scss'
 import QuestionRoute from './QuestionRoute'
-import SignInRequestAlert from './SignInRequestAlert'
-
 
 class App extends Component {
   componentDidMount(){
@@ -23,80 +21,35 @@ class App extends Component {
   render(){
     const { noAuth, authedUser } = this.props
     console.log(authedUser)
+    console.log(noAuth)
     return (
       <Fragment>
         <LoadingBar style={{ backgroundColor: '#E07A5F' }}/>
         <Nav/>
         <section id='main-section'>
           <Switch>
-            <Route exact path='/' render={()=>{
-              if(noAuth){
+            <Route exact path='/' render={(props)=>{
+              console.log(props.location)
+              if(noAuth && props.location.state !== null){
+                  return(
+                    <Login noAuth={noAuth}/>
+                  )
+              }
+              else if(noAuth){
                 return(
-                  <Fragment>
-                    <Login/>
-                  </Fragment>
+                  <Login/>
                 )
               }
               else{
                 return(
-                  <Fragment>
-                    <Home/>
-                  </Fragment>   
+                  <Home />
                 )
               }
               }
             } />
-            <Route exact path='/add' render={()=>{
-              if(noAuth){
-                return(
-                  <Fragment>
-                    <SignInRequestAlert/>
-                    <Login/>
-                  </Fragment>
-                )
-              }
-              else{
-                return(
-                  <Fragment>
-                    <NewQuestion/>
-                  </Fragment>   
-                )
-              }
-              }
-            } />
-            <Route exact path='/leaderboard' render={()=>{
-              if(noAuth){
-                return(
-                  <Fragment>
-                    <SignInRequestAlert/>
-                    <Login/>
-                  </Fragment>
-                )
-              }
-              else{
-                return(
-                  <Fragment>
-                    <Leaderboard/>
-                  </Fragment>   
-                )
-              }
-              }
-            } />
-            <Route path='/question/:id' render={(props)=>{
-              if(noAuth){
-                return(
-                  <Fragment>
-                    <SignInRequestAlert/>
-                    <Login/>
-                  </Fragment>
-                )
-              }
-              else{
-                return(
-                  <QuestionRoute qid={props.match.params.id} />
-                )
-              }
-            }}/>
+            <PrivateRoute exact path='/add' noAuth={noAuth} component={NewQuestion} />
+            <PrivateRoute exact path='/leaderboard' noAuth={noAuth} component={Leaderboard} />
+            <PrivateRoute path='/question/:id' noAuth={noAuth} component={QuestionRoute} />
             <Route path="/*" component={NotFoundPage} />
             <Redirect to="/404" />
           </Switch> 
