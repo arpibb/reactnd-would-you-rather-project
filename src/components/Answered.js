@@ -28,7 +28,7 @@ class Answered extends Component{
           <div className="question-container">
             <p className="head-text">Results: </p>
             <div className={`option-result ${yourAnswer ==='optionOne' ? 'your-answer' : ''}`}>
-              <div className={`option-result ${yourAnswer ==='optionOne' ? 'visible' : 'hidden'}`}><p>Your voice</p></div>
+              <div className={`${yourAnswer ==='optionOne' ? 'visible' : 'hidden'}`}><p>Your voice</p></div>
               <p className="option-text">Would you rather {optionOneText}?</p>
               <div className="show-result-border">
                 <div className="show-result" style={{width: `${widthOptionOne}%`}}>{widthOptionOne}%</div>
