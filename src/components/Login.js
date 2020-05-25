@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import SignInRequestAlert from './SignInRequestAlert'
 import '../styles/App.scss'
 import logo from "../static/images/react-redux-logo.png"
@@ -35,7 +35,7 @@ class Login extends Component {
     e.preventDefault()
     if(this.state.isUserSelected){
       this.props.dispatch(setAuthedUser(this.state.authedUser))
-      this.props.history.push("/")
+      //this.props.history.push("/")
     }
     else{
       this.setState(()=>({

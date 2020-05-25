@@ -8,7 +8,9 @@ class QuestionPreview extends Component{
   render(){
     const { users, questions, id} = this.props
     const questionAuthor = users[questions[id].author]
+    
     return (
+      <>
       <div className="question-card">
         <div className="name-display">
           <p>{questionAuthor.name} asks:</p>
@@ -24,6 +26,7 @@ class QuestionPreview extends Component{
           </div>
         </div>
       </div>
+      </>
     )
   }
 }

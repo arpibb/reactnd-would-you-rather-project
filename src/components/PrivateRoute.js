@@ -1,24 +1,40 @@
-import React from 'react'
+import React,{ Component } from 'react'
+import { connect } from 'react-redux'
 import {
   Route,
   Redirect,
 } from 'react-router-dom'
+import SignInRequestAlert from './SignInRequestAlert'
+import Login from './Login'
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+class PrivateRoute extends Component{
+  
+  render(){
+  const { authedUser, component:Component, ...rest } = this.props
+  console.log(authedUser)
   return(
   <Route {...rest} render={(props) => {
     return(
-    rest.noAuth === false
+    (authedUser !== null)
       ? <Component {...props} qid={props.match.params.id} />
       : <div>
-           <Redirect to={{
+          <SignInRequestAlert/>
+          <Login/>
+           {/* <Redirect to={{
               pathname: '/',
               state: { from: props.location }
-            }} />
+            }} /> */}
         </div>
 
       )
       
 }} />)}
+}
 
-export default PrivateRoute
+function mapStateToProps({authedUser}){
+  return{
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(PrivateRoute)

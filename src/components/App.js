@@ -29,8 +29,8 @@ class App extends Component {
         <section id='main-section'>
           <Switch>
             <Route exact path='/' render={(props)=>{
-              console.log(props.location)
-              if(noAuth && props.location.state !== null){
+              console.log(props)
+              if(noAuth && props.location.state !== null && props.location.state !== undefined){
                   return(
                     <Login noAuth={noAuth}/>
                   )
@@ -49,8 +49,9 @@ class App extends Component {
             } />
             <PrivateRoute exact path='/add' noAuth={noAuth} component={NewQuestion} />
             <PrivateRoute exact path='/leaderboard' noAuth={noAuth} component={Leaderboard} />
-            <PrivateRoute path='/question/:id' noAuth={noAuth} component={QuestionRoute} />
+            <PrivateRoute exact path='/question/:id' noAuth={noAuth} component={QuestionRoute} />
             <Route path="/*" component={NotFoundPage} />
+            <Route path="/question/*" component={NotFoundPage} />
             <Redirect to="/404" />
           </Switch> 
         </section>

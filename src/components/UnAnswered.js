@@ -25,6 +25,7 @@ class UnAnswered extends Component{
 
   render(){
     const { qid, users, questions} = this.props
+    
     const questionAuthor = users[questions[qid].author]
     const optionOneText = questions[qid].optionOne.text
     const optionTwoText = questions[qid].optionTwo.text
