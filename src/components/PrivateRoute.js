@@ -8,26 +8,27 @@ import SignInRequestAlert from './SignInRequestAlert'
 import Login from './Login'
 
 class PrivateRoute extends Component{
-  
   render(){
-  const { authedUser, component:Component, ...rest } = this.props
-  console.log(authedUser)
-  return(
-  <Route {...rest} render={(props) => {
-    return(
-    (authedUser !== null)
-      ? <Component {...props} qid={props.match.params.id} />
-      : <div>
-          <SignInRequestAlert/>
-          <Login/>
-           {/* <Redirect to={{
-              pathname: '/',
-              state: { from: props.location }
-            }} /> */}
-        </div>
+  const { 
+    authedUser, 
+    component:Component, 
+    ...rest 
+  } = this.props
 
-      )
-      
+  return(
+    <Route {...rest} render={(props) => {
+    return(
+      (authedUser !== null)
+        ? <Component {...props} qid={props.match.params.id} />
+        : <div>
+            <SignInRequestAlert/>
+            <Login/>
+            {/* <Redirect to={{
+                pathname: '/',
+                state: { from: props.location }
+              }} /> */}
+          </div>
+        )
 }} />)}
 }
 

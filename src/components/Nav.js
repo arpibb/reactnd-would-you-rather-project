@@ -11,7 +11,7 @@ class Nav extends Component {
     this.props.history.push("/")
   }
   render(){
-    const { authedUser, users} = this.props
+    const { authedUser, users } = this.props
     return(
       <nav>
         <ul id="steady-nav-items">

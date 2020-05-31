@@ -20,8 +20,7 @@ class App extends Component {
   }
   render(){
     const { noAuth, authedUser } = this.props
-    console.log(authedUser)
-    console.log(noAuth)
+    
     return (
       <Fragment>
         <LoadingBar style={{ backgroundColor: '#E07A5F' }}/>
